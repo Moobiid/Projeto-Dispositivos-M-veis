@@ -16,7 +16,7 @@ class _PagEntradaState extends State<PagEntrada> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 85, 85, 85),
+        backgroundColor: Color.fromARGB(255, 102, 102, 102),
         appBar: AppBar(
           centerTitle: true,
           title: Text("Página de Login"),
@@ -26,10 +26,25 @@ class _PagEntradaState extends State<PagEntrada> {
           child: Container(
             height: 150,
             width: 300,
-            color: const Color.fromARGB(255, 114, 114, 114),
             child: TextField(
               controller: controlador,
-              decoration: InputDecoration(),
+              decoration: InputDecoration(
+                labelText: "E-mail",
+                labelStyle: TextStyle(
+                    color: Color.fromARGB(255, 233, 233, 233),
+                    fontWeight: FontWeight.bold),
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                    borderSide: BorderSide(color: Colors.black)),
+                disabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(color: Colors.black),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(15),
+                  borderSide: BorderSide(color: Colors.black),
+                ),
+              ),
             ),
           ),
         ));
