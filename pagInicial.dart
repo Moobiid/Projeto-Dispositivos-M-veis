@@ -11,7 +11,7 @@ class PagLogin extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 85, 85, 85),
+        backgroundColor: Color.fromARGB(255, 102, 102, 102),
         appBar: AppBar(
           centerTitle: true,
           title: Text("Projeto Aula"),
@@ -28,9 +28,11 @@ class PagLogin extends StatelessWidget {
             style: OutlinedButton.styleFrom(
               minimumSize: Size(200, 50),
               fixedSize: Size(200, 50),
-              backgroundColor: const Color.fromARGB(255, 90, 90, 90),
-              side: const BorderSide(
-                  color: Color.fromARGB(255, 134, 134, 134), width: 2),
+              backgroundColor: Color.fromARGB(255, 102, 102, 102),
+              foregroundColor: Colors.black,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15))),
+              side: const BorderSide(color: Colors.black, width: 2),
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             ),
 
