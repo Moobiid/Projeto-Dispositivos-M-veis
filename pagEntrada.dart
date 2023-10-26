@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:app_01/projeto/pagCadastro.dart';
+import 'package:app_01/projeto/pagEsqueceuSenha.dart';
+import 'package:app_01/projeto/pagPrincipal.dart';
 import 'package:flutter/material.dart';
 
 class PagEntrada extends StatefulWidget {
@@ -55,7 +58,7 @@ class _PagEntradaState extends State<PagEntrada> {
               ),
 
               Container(
-                height: 150,
+                height: 50,
                 width: 300,
                 child: TextField(
                   //Fazendo com que a senha se torne visivel de forma dinamica atraves da declarção booleana "!""
@@ -96,7 +99,103 @@ class _PagEntradaState extends State<PagEntrada> {
                     ),
                   ),
                 ),
-              )
+              ),
+
+              //Botao Esqueceu a senha
+
+              TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => pagEsqueceuSenha()));
+                  },
+                  child: Text(
+                    'Esqueceu a senha?',
+                    style: TextStyle(
+                      decoration: TextDecoration.underline,
+                      decorationColor: Color.fromARGB(255, 245, 246, 247),
+                      fontSize: 12,
+                      color: Color.fromARGB(255, 245, 246, 247),
+                    ),
+                  )),
+
+              SizedBox(
+                height: 80,
+              ),
+
+              //Botao para entrar para o menu
+
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => pagPrincipal()));
+                },
+
+                // Perform an action when the button is pressed
+                style: OutlinedButton.styleFrom(
+                  //minimumSize: Size(100, 100),
+                  fixedSize: Size(300, 40),
+                  backgroundColor: Color.fromARGB(255, 102, 102, 102),
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                  side: const BorderSide(color: Colors.black, width: 2),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                ),
+
+                child: const Text(
+                  'Entrar',
+                  style: TextStyle(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: Color.fromARGB(255, 245, 246, 247),
+                  ),
+                ),
+              ),
+
+              SizedBox(
+                height: 50,
+              ),
+
+              Text('Não possui uma conta?',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Color.fromARGB(255, 245, 246, 247),
+                  )),
+
+              SizedBox(
+                height: 15,
+              ),
+
+              OutlinedButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => pagCadastro()));
+                },
+
+                // Perform an action when the button is pressed
+                style: OutlinedButton.styleFrom(
+                  //minimumSize: Size(100, 100),
+                  fixedSize: Size(300, 40),
+                  backgroundColor: Color.fromARGB(255, 102, 102, 102),
+                  foregroundColor: Colors.black,
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15))),
+                  side: const BorderSide(color: Colors.black, width: 2),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                ),
+
+                child: const Text(
+                  'Inscreva-se',
+                  style: TextStyle(
+                    fontSize: 12,
+                    color: Color.fromARGB(255, 245, 246, 247),
+                  ),
+                ),
+              ),
             ],
           ),
         ));
