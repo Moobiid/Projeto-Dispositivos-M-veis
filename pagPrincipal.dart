@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types
 
+import 'package:app_01/projeto/pagInicial.dart';
 import 'package:app_01/projeto/pagSobre.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,12 @@ class _pagPrincipalState extends State<pagPrincipal> {
         home: Scaffold(
             backgroundColor: Color.fromARGB(255, 102, 102, 102),
             appBar: AppBar(
+              leading: BackButton(
+                onPressed: () {
+                  Navigator.pop(context,
+                      MaterialPageRoute(builder: (context) => PagLogin()));
+                },
+              ),
               centerTitle: true,
               // ignore: prefer_const_constructors
               title: Text("Menu"),
