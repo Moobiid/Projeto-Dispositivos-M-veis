@@ -1,0 +1,102 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:app_01/projeto/pagPrincipal.dart';
+import 'package:flutter/material.dart';
+import 'package:app_01/projeto/pagInicial.dart';
+
+class pagNovaSenha extends StatefulWidget {
+  const pagNovaSenha({super.key});
+
+  @override
+  State<pagNovaSenha> createState() => _pagNovaSenhaState();
+}
+
+TextEditingController senhaController = TextEditingController();
+
+class _pagNovaSenhaState extends State<pagNovaSenha> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+          backgroundColor: Color.fromARGB(255, 102, 102, 102),
+          appBar: AppBar(
+            leading: BackButton(
+              onPressed: () {
+                Navigator.pop(context,
+                    MaterialPageRoute(builder: (context) => PagLogin()));
+              },
+            ),
+            centerTitle: true,
+            // ignore: prefer_const_constructors
+            title: Text("Recuperar Senha"),
+            backgroundColor: Color.fromARGB(255, 0, 0, 0),
+          ),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  child: TextField(
+                    controller: senhaController,
+                    decoration: InputDecoration(
+                      hintText: 'Informe a nova senha',
+                      hintStyle: TextStyle(color: Colors.white),
+                      labelText: 'Nova senha',
+                      labelStyle: TextStyle(
+                        color: Colors.white,
+                      ),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15),
+                          borderSide: BorderSide(color: Colors.black)),
+                      disabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(15),
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                    height: 55,
+                    width: 300,
+                    child: OutlinedButton(
+                      onPressed: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => pagPrincipal()));
+                      }, // Perform an action when the button is pressed
+                      style: OutlinedButton.styleFrom(
+                        //minimumSize: Size(100, 100),
+                        fixedSize: Size(300, 40),
+                        backgroundColor: Color.fromARGB(255, 102, 102, 102),
+                        foregroundColor: Colors.black,
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15))),
+                        side: const BorderSide(color: Colors.black, width: 2),
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 16),
+                      ),
+
+                      child: const Text(
+                        'Confirmar',
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Color.fromARGB(255, 245, 246, 247),
+                        ),
+                      ),
+                    )),
+              ],
+            ),
+          ),
+        ));
+  }
+}
